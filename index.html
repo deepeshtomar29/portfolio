@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="footer.css">
+ 
+    <title>Document</title>
+</head>
+
+<style>
+  article {
+  --img-scale: 1.001;
+  --title-color: black;
+  --link-icon-translate: -20px;
+  --link-icon-opacity: 0;
+  position: relative;
+  border-radius: 16px;
+  box-shadow: none;
+  background:gray;
+  transform-origin: center;
+  transition: all 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+article a::after {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: 0;
+  cursor: pointer;
+  content: "";
+}
+
+/* basic article elements styling */
+article h2 {
+  margin: 0 0 18px 0;
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.9rem;
+  letter-spacing: 0.06em;
+  color: var(--title-color);
+  transition: color 0.3s ease-out;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+article img {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(var(--img-scale));
+  transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+  padding: 24px;
+}
+
+article a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  
+}
+
+article a:focus {
+  outline: 1px dotted #28666e;
+}
+
+article a .icon {
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  transform: translateX(var(--link-icon-translate));
+  opacity: var(--link-icon-opacity);
+  transition: all 0.3s;
+}
+
+/* using the has() relational pseudo selector to update our custom properties */
+article:has(:hover, :focus) {
+  --img-scale: 1.1;
+  --title-color:black;
+  --link-icon-translate: 0;
+  --link-icon-opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+
+/************************ 
+Generic layout (demo looks)
+**************************/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+
+.articles {
+  display: grid;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+@media screen and (max-width: 960px) {
+  
+  .article-body p {
+    display: none;
+  }
+}
+
+@container card (min-width: 380px) {
+  .article-wrapper {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  .article-body {
+    padding-left: 0;
+  }
+  figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  figure img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+</style>
+<body>
+    <!-----MENU SECTION------>
+<div class="main-panel">
+    <div class="container">
+      <div class="width-33 logo">Port <span class="span-col">folio</span>
+      </div>
+      <div class="width-66">
+        <nav>
+          <a href="home.html">
+            <span class="span-col">Home</span>
+          </a>
+          <a href="#About">About me</a>
+          <a href="skill.html">My project</a>
+          <a href="portfolio.html">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <!------MAIN BANNERR------>
+<div class="container ">
+    <div class="width-50">
+      <div class="banner-section">
+        <span class="span-col">Welcome</span>
+        <h1>Deepesh<span class="span-col">Tomar</span>
+        </h1>
+        <h2>- I'm a passionate Frontend Developer</h2>
+        <a href="#">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a href="#">
+          <i class="fa fa-github"></i>
+        </a>
+      </div>
+    </div>
+    <div class="width-50">
+      <img style="border-radius: 55%; width: 250px; height: 330px;" src="Img/dfront.2.jpeg">
+    </div>
+  </div>
+  </div>
+
+  <!------ABOUT US SECTION------>
+
+  <section id="About">
+    <div class="main-section bg-lightgrey">
+    <div class="container">
+      <div class="width-50">
+        <img src="side.d.jpeg" class="about-img">
+      </div>
+      <div class="width-50">
+        <div class="about-us">
+          <h2 class="heading-text">About Us</h2>
+          <h3>I am available for Web Development</h3>
+          <p>Hi, I am Deepesh Tomar, From Agra. Get best computer science student portfolio website Genius In You With Genius 2023. Welcome To My portfolio website.</p>
+          <div class="width-50 mt-20">
+            <table cellspacing="8" cellpadding="8">
+              <tr>
+                <th>Name:</th>
+                <td>Deepesh Tomar</td>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <td> deepeshtomar29@gmail.com</td>
+              </tr>
+              <tr>
+                <th>Birthday:</th>
+                <td>29 april 2000</td>
+              </tr>
+              <tr>
+                <th>Study:</th>
+                <td>Abes Enigineering College</td>
+              </tr>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+  <!------SKILL SECTION------>
+<div class="main-section">
+    <div class="container">
+      <h2 class="heading-text">My Skills</h2>
+      <div class="width-50">
+        <div class="skill">
+          <b>HTML</b>
+          <span>95%</span>
+          <div>
+            <span style="width:95%"></span>
+          </div>
+        </div>
+        <div class="skill">
+          <b>CSS</b>
+          <span>91%</span>
+          <div>
+            <span style="width:91%"></span>
+          </div>
+        </div>
+        <div class="skill">
+          <b>JavaScript</b>
+          <span>85%</span>
+          <div>
+            <span style="width:85%"></span>
+          </div>
+        </div>
+        <div class="skill">
+          <b>React js</b>
+          <span>50%</span>
+          <div>
+            <span style="width:79%"></span>
+          </div>
+        </div>
+      </div>
+      <div class="width-50">
+        <div class="width-50">
+          <div role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="--value:65">React-65</div>
+        </div>
+        <div class="width-50">
+          <div role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="--value:85">Jquery-85</div>
+        </div>
+        <div class="width-50">
+          <div role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="--value:65">Node-65</div>
+        </div>
+        <div class="width-50">
+          <div role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="--value:85">CMD-85</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!------PORTFOLIO SECTION------>
+<div class="main-section">
+  <h2 class="heading-text">My Project</h2>
+  <section class="articles">
+    <article>
+      <div class="article-wrapper">
+        <figure>
+          <img src="Img/3.jpg" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Fashion website</h2>
+          <p>
+           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, assumenda labore cumque at pariatur omnis et expedita temporibus sit esse natus ex.
+          </p>
+          <a href="#" class="read-more">
+            Read more <span class="sr-only">about this is some title</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+    <article>
+  
+      <div class="article-wrapper">
+        <figure>
+          <img src="Img/4.jpg" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>Instagram login clone</h2>
+          <p>
+            Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+          </p>
+          <a href="#" class="read-more">
+            Read more <span class="sr-only">about this is some title</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+    <article>
+  
+      <div class="article-wrapper">
+        <figure>
+          <img src="https://picsum.photos/id/103/800/450" alt="" />
+        </figure>
+        <div class="article-body">
+          <h2>shoess</h2>
+          <p>
+            Curabitur convallis ac quam vitae laoreet. Nulla mauris ante, euismod sed lacus sit amet, congue bibendum eros. Etiam mattis lobortis porta. Vestibulum ultrices iaculis enim imperdiet egestas.
+          </p>
+          <a href="#" class="read-more">
+            Read more <span class="sr-only">about this is some title</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
+  </section>
+  </div>
+
+  <!------FOOTER SECTION------>
+  <section id="contact us">
+
+    <footer class="footer">
+      <div class="footer-menu">
+
+          <nav class="footer-nav-column">
+              <ul class="footer-nav-container">
+                  <li class="li-title">About section</li>
+                  <li id="aboutus"><a href="#">Home</a></li>
+                  <li id="aboutus"><a href="#">About</a></li>
+                  
+              </ul>
+          </nav>
+          <nav class="footer-nav-column">
+              <ul class="footer-nav-container">
+                  <br>
+                  <br>
+                  <li class="ourstore"><a href="#">Contact</a></li>
+
+                  <li id="aboutus"><a href="#">Carrer</a></li>
+
+              </ul>
+          </nav>
+
+          <nav class="footer-nav-column subscribe">
+              <ul class="footer-nav-container">
+                  <li class="li-title">Review</li>
+                  <p>
+                      Simplicity is the ultimate sophistication
+                  </p>
+                 
+              </ul>
+          </nav>
+
+          <nav class="footer-nav-column subscribe">
+              <ul class="footer-nav-container">
+
+
+                  <span class="email"><input type="email" id="subscribe-input" name="email"
+                          placeholder="Email" /></span>
+                  <button id="subscribe-btn">Subscribe</button>
+              </ul>
+          </nav>
+      </div>
+      <center>
+          <div class="social-media" id="lineheight">
+              <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+              <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter-square"></i></a>
+              <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+              <a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-square"></i></a>
+              <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest-square"></i></a>
+          </div>
+          <p class="copyright" id="lineheight">Copyright &copy; 2022 | Deepesh Tomar</p>
+      </center>
+
+  </footer>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  </script>
+
+  </body>
+  </html>
+
+
+
